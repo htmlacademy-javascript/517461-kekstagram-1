@@ -1,7 +1,7 @@
 # Личный проект «Кекстаграм»
 
 * Студент: [Rinat Atnashev](https://up.htmlacademy.ru/javascript-individual/1/user/517461).
-* Наставник: `Неизвестно`.
+* Наставник: [Юрий Белобородов](https://htmlacademy.ru/profile/id514591).
 
 ---
 
