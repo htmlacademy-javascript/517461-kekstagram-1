@@ -2,23 +2,17 @@
 Функция проверки строки. Является ли она полиндромом?
  */
 
-let string = 'q';
-
-function getIsPolindrom () {
+function isPolindrom (string) {
   string = (string.toLowerCase()).replaceAll(' ', '');
 
   let newString = '';
   for (let i = string.length - 1; i >= 0; i -= 1) {
     newString += string[i];
   }
-  if (newString === string) {
-    return 'Yes, this is polindrom';
-  } else {
-    return 'No, this is not polindrom';
-  }
+  return newString === string;
 }
 
-getIsPolindrom(string);
+isPolindrom('ДовОд');
 
 /*
 Функция принимает строку и извлекает,
@@ -26,7 +20,7 @@ getIsPolindrom(string);
 если нет чисел.
 */
 
-function getNumber () {
+function extractNumberFromString(string) {
   if (string === Number(string)) {
     string = string.toString();
   }
@@ -45,7 +39,7 @@ function getNumber () {
   return strNumber;
 }
 
-getNumber(string);
+extractNumberFromString('Hello from 2023 year');
 
 /*
 Функция для проверки длинны строки.
@@ -55,11 +49,11 @@ getNumber(string);
 const MAX_LENGHT = 20;
 const MIN_LENGTH = 5;
 
-function getStringLength () {
+function isValidString (string) {
   if (string.length <= MAX_LENGHT && string.length >= MIN_LENGTH) {
     return true;
   }
   return false;
 }
 
-getStringLength(string);
+isValidString('Hello');
