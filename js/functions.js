@@ -21,10 +21,6 @@ isPolindrom('ДовОд');
 */
 
 function extractNumberFromString(string) {
-  if (string === Number(string)) {
-    string = string.toString();
-  }
-
   let strNumber = '';
 
   for (let i = 0; i < string.length; i += 1) {
@@ -34,7 +30,7 @@ function extractNumberFromString(string) {
   }
 
   if(strNumber.length === 0) {
-    return strNumber / strNumber;
+    return NaN;
   }
   return strNumber;
 }
