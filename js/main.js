@@ -1,3 +1,3 @@
-import { similarPhotoGenerate } from './data';
+import { similarPhotoGenerate } from './data.js';
 
 similarPhotoGenerate();
