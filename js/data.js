@@ -1,6 +1,6 @@
-import {getRandomInteger, getRandomArrayElements, createRandomIdFromRangeGenerator} from './util.js';
+import * as utils from './util.js';
 
-const DESCRIPTION = [
+const DESCRIPTIONS = [
   'Фото в Париже',
   'Котик лакомиться новыми вкусняшками',
   'Новый ресторан в Амстердаме',
@@ -29,29 +29,27 @@ const NAMES = [
 
 const SIMILAR_PHOTO_COUNT = 25;
 
-const generatePhotoId = createRandomIdFromRangeGenerator(1, SIMILAR_PHOTO_COUNT);
+const generatePhotoId = utils.createRandomIdFromRangeGenerator(1, SIMILAR_PHOTO_COUNT);
 
-const generateUrlPhoto = createRandomIdFromRangeGenerator(1, SIMILAR_PHOTO_COUNT);
+const generateUrlPhoto = utils.createRandomIdFromRangeGenerator(1, SIMILAR_PHOTO_COUNT);
 
-const generateCommentsId = createRandomIdFromRangeGenerator(0, COMMENTS.length - 1);
+const generateCommentsId = utils.createRandomIdFromRangeGenerator(0, COMMENTS.length - 1);
 
-const generateAvatarUrl = () => getRandomInteger(1, 6);
+const generateAvatarUrl = () => utils.getRandomInteger(1, 6);
 
 const createPhotoComments = () => ({
   id: generateCommentsId(),
   avatar: `img/avatar-${ generateAvatarUrl() }.svg`,
-  message: getRandomArrayElements(COMMENTS),
-  name: getRandomArrayElements(NAMES),
+  message: utils.getRandomArrayElements(COMMENTS),
+  name: utils.getRandomArrayElements(NAMES),
 });
 
 const createPhotoDescription = () => ({
   id: generatePhotoId(),
   url: `photos/${ generateUrlPhoto() }.jpg`,
-  description: getRandomArrayElements(DESCRIPTION),
-  likes: getRandomInteger(15, 200),
-  comments: Array.from({length: getRandomInteger(1, COMMENTS.length - 1)}, createPhotoComments),
+  description: utils.getRandomArrayElements(DESCRIPTIONS),
+  likes: utils.getRandomInteger(15, 200),
+  comments: Array.from({length: utils.getRandomInteger(1, COMMENTS.length - 1)}, createPhotoComments),
 });
 
-const similarPhotoGenerate = () => Array.from({length: SIMILAR_PHOTO_COUNT}, createPhotoDescription);
-
-export {similarPhotoGenerate};
+export const generateSimilarPhotos = () => Array.from({length: SIMILAR_PHOTO_COUNT}, createPhotoDescription);

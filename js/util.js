@@ -1,13 +1,13 @@
-const getRandomInteger = (a, b) => {
+export const getRandomInteger = (a, b) => {
   const lower = Math.ceil(Math.min(a, b));
   const upper = Math.floor(Math.max(a, b));
   const result = Math.random() * (upper - lower + 1) + lower;
   return Math.floor(result);
 };
 
-const getRandomArrayElements = (elements) => elements[getRandomInteger(0, elements.length - 1)];
+export const getRandomArrayElements = (elements) => elements[getRandomInteger(0, elements.length - 1)];
 
-const createRandomIdFromRangeGenerator = (min, max) => {
+export const createRandomIdFromRangeGenerator = (min, max) => {
   const previousValues = [];
 
   return () => {
@@ -22,5 +22,3 @@ const createRandomIdFromRangeGenerator = (min, max) => {
     return currentValue;
   };
 };
-
-export {getRandomInteger, getRandomArrayElements, createRandomIdFromRangeGenerator};
