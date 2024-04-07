@@ -1,3 +1,4 @@
 import { generateSimilarPhotos } from './data.js';
+import { renderPicture } from './picture.js';
 
-generateSimilarPhotos();
+renderPicture(generateSimilarPhotos);
